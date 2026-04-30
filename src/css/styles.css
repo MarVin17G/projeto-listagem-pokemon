@@ -1,0 +1,283 @@
+/* ===================== */
+/* BASE */
+/* ===================== */
+body {
+  font-family: "VT323", sans-serif;
+  max-width: 1280px;
+  margin: 0 auto;
+  background-color: #5e5b5bad;
+  color: #333;
+}
+
+body.modo-escuro {
+  background-color: #212121;
+  color: #f5f5f5;
+}
+
+/* ===================== */
+/* HEADER */
+/* ===================== */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+}
+
+.logo,
+.imagem-botao {
+  width: 30px;
+  cursor: pointer;
+}
+
+#botao-alterar-tema {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* ===================== */
+/* LISTA */
+/* ===================== */
+.listagem-pokemon {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* ===================== */
+/* CARD */
+/* ===================== */
+.card-pokemon {
+  width: 200px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border-radius: 15px;
+  color: #fff;
+  transition: 0.2s;
+}
+
+.card-pokemon:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* ===================== */
+/* INFO */
+/* ===================== */
+.informacoes {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.gif {
+  width: 90px;
+}
+
+/* ===================== */
+/* TIPOS */
+/* ===================== */
+.tipos {
+  display: flex;
+  gap: 10px;
+}
+
+.tipo {
+  padding: 5px 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ===================== */
+/* MODAL */
+/* ===================== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  width: 300px;
+  border-radius: 15px;
+  text-align: center;
+  position: relative;
+}
+
+.modo-escuro .modal-content {
+  background: #333;
+  color: #fff;
+}
+
+#closeModal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* ===================== */
+/* 🔥 STATS (HP, ATTACK...) */
+/* ===================== */
+.stat {
+  margin: 12px 0;
+  text-align: left;
+}
+
+.stat span {
+  font-size...: 14px;
+  font-weight: bold;
+}
+
+.barra {
+  width: 100%;
+  height: 12px;
+  background: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.barra-preenchimento {
+  height: 100%;
+  width: 0;
+  border-radius: 10px;
+  transition: width 0.8s ease;
+}
+
+/* ===================== */
+/* 🎨 CORES DAS BARRAS (TIPOS) */
+/* ===================== */
+.barra-preenchimento.fire {
+  background: #ee8130;
+}
+.barra-preenchimento.water {
+  background: #6390f0;
+}
+.barra-preenchimento.grass {
+  background: #7ac74c;
+}
+.barra-preenchimento.electric {
+  background: #f7d02c;
+}
+.barra-preenchimento.ice {
+  background: #96d9d6;
+}
+.barra-preenchimento.fighting {
+  background: #c22e28;
+}
+.barra-preenchimento.poison {
+  background: #df67ddfb;
+}
+.barra-preenchimento.ground {
+  background: #e2bf65;
+}
+.barra-preenchimento.flying {
+  background: #a98ff3;
+}
+.barra-preenchimento.psychic {
+  background: #f95587;
+}
+.barra-preenchimento.bug {
+  background: #a6b91a;
+}
+.barra-preenchimento.rock {
+  background: #b6a136;
+}
+.barra-preenchimento.ghost {
+  background: #735797;
+}
+.barra-preenchimento.dragon {
+  background: #6f35fc;
+}
+.barra-preenchimento.dark {
+  background: #705746;
+}
+.barra-preenchimento.steel {
+  background: #b7b7ce;
+}
+.barra-preenchimento.fairy {
+  background: #d685ad;
+}
+.barra-preenchimento.normal {
+  background: #a8a77a;
+}
+
+/* ===================== */
+/* 🎨 CORES DOS CARDS */
+/* ===================== */
+.card-pokemon.fire {
+  background: #ee8130;
+}
+.card-pokemon.water {
+  background: #6390f0;
+}
+.card-pokemon.grass {
+  background: #7ac74c;
+}
+.card-pokemon.electric {
+  background: #f7d02c;
+}
+.card-pokemon.ice {
+  background: #96d9d6;
+}
+.card-pokemon.fighting {
+  background: #c22e28;
+}
+.card-pokemon.poison {
+  background: #df67ddfb;
+}
+.card-pokemon.ground {
+  background: #e2bf65;
+}
+.card-pokemon.flying {
+  background: #a98ff3;
+}
+.card-pokemon.psychic {
+  background: #f95587;
+}
+.card-pokemon.bug {
+  background: #a6b91a;
+}
+.card-pokemon.rock {
+  background: #b6a136;
+}
+.card-pokemon.ghost {
+  background: #735797;
+}
+.card-pokemon.dragon {
+  background: #6f35fc;
+}
+.card-pokemon.dark {
+  background: #705746;
+}
+.card-pokemon.steel {
+  background: #b7b7ce;
+}
+.card-pokemon.fairy {
+  background: #d685ad;
+}
+.card-pokemon.normal {
+  background: #a8a77a;
+}

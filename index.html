@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Pokédex</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="src/css/reset.css">
+  <link rel="stylesheet" href="src/css/styles.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="/">
+      <img src="./src/imagens/pokeball.png" alt="pokebola" class="logo">
+    </a>
+
+    <button id="botao-alterar-tema">
+      <img src="./src/imagens/sun.png" class="imagem-botao">
+    </button>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- 🔎 BUSCA -->
+    <input 
+      type="text" 
+      id="input-busca" 
+      placeholder="Buscar Pokémon..."
+    >
+
+    <!-- 🎯 FILTRO -->
+    <select id="filtro-tipo">
+      <option value="all">Todos</option>
+      <option value="fire">Fogo</option>
+      <option value="water">Água</option>
+      <option value="grass">Grama</option>
+      <option value="electric">Elétrico</option>
+      <option value="bug">Inseto</option>
+      <option value="poison">Veneno</option>
+      <option value="normal">Normal</option>
+      <option value="flying">Voador</option>
+      <option value="ground">Terra</option>
+      <option value="rock">Pedra</option>
+      <option value="ghost">Fantasma</option>
+      <option value="dark">Sombrio</option>
+      <option value="psychic">Psíquico</option>
+      <option value="ice">Gelo</option>
+      <option value="dragon">Dragão</option>
+      <option value="steel">Aço</option>
+      <option value="fairy">Fada</option>
+      <option value="fighting">Lutador</option>
+    </select>
+
+    <!-- 📦 LISTA (DINÂMICA) -->
+    <ul class="listagem-pokemon"></ul>
+
+  </main>
+
+  <!-- 🔥 MODAL -->
+  <div id="pokemonModal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal">&times;</span>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="./src/js/index.js"></script>
+
+</body>
+</html>
