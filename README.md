@@ -8,7 +8,8 @@ Uma Pokédex interativa desenvolvida com HTML, CSS e JavaScript consumindo dados
 - Busca por nome
 - Filtro por tipo
 - Dark mode
-- Modal com detalhes
+- Animação flip 3D nos cards
+- Modal co detalhes
 - Exibição de stats (HP, Attack e Defense)
 - Cards com cores dinâmicas por tipo
 
