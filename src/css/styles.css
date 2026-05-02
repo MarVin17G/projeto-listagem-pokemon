@@ -52,15 +52,12 @@ header {
 /* CARD */
 /* ===================== */
 .card-pokemon {
+  position: relative;
   width: 200px;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  border-radius: 15px;
-  color: #fff;
-  transition: 0.2s;
+  height: 300px;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
 }
 
 .card-pokemon:hover {

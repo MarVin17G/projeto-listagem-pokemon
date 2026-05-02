@@ -114,19 +114,23 @@ document.addEventListener("DOMContentLoaded", () => {
       li.classList.add(tipoPrincipal);
 
       li.innerHTML = `
-        <div class="informacoes">
-          <span>${nome}</span>
-          <span>#${id}</span>
-        </div>
+  <div class="card-inner">
+    <div class="card-front">
+      <div class="informacoes">
+        <span>${nome}</span>
+        <span>#${id}</span>
+      </div>
 
-        <img src="${imagem}" class="gif"/>
+      <img src="${imagem}" class="gif"/>
 
-        <ul class="tipos">
-          ${tipos.map(t => `<li class="tipo ${t}">${t}</li>`).join("")}
-        </ul>
+      <ul class="tipos">
+        ${tipos.map((t) => `<li class="tipo ${t}">${t}</li>`).join("")}
+      </ul>
 
-        <p class="descricao">Pokémon da PokéAPI</p>
-      `;
+      <p class="descricao">Pokémon da PokéAPI</p>
+    </div>
+  </div>
+`;
 
      li.addEventListener("click", () => {
   openModal({
