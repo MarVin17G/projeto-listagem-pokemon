@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   // =====================
   // 🌙 TEMA
   // =====================
@@ -13,9 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     imagemBotaoTrocaDeTema.setAttribute(
       "src",
-      modoEscuroAtivo
-        ? "./src/imagens/sun.png"
-        : "./src/imagens/moon.png"
+      modoEscuroAtivo ? "./src/imagens/sun.png" : "./src/imagens/moon.png",
     );
   });
 
@@ -27,9 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeModal = document.getElementById("closeModal");
 
   function openModal(pokemon) {
-  modal.style.display = "flex";
+    modal.style.display = "flex";
 
-  modalBody.innerHTML = `
+    modalBody.innerHTML = `
     <h2>${pokemon.name}</h2>
     <img src="${pokemon.image}" width="120" alt="${pokemon.name}">
     
@@ -44,19 +41,31 @@ document.addEventListener("DOMContentLoaded", () => {
     <p>${pokemon.description}</p>
   `;
 
-  animarBarras();
-}
+    animarBarras();
+  }
 
   // fechar modal
-  closeModal.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
+ closeModal.addEventListener("click", () => {
+  modal.style.display = "none";
 
-  window.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.style.display = "none";
+  const cardVirado = document.querySelector(".card-pokemon.flip");
+
+  if (cardVirado) {
+    cardVirado.classList.remove("flip");
+  }
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+
+    const cardVirado = document.querySelector(".card-pokemon.flip");
+
+    if (cardVirado) {
+      cardVirado.classList.remove("flip");
     }
-  });
+  }
+});
 
   // =====================
   // 📊 BARRAS
@@ -79,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function animarBarras() {
     const barras = document.querySelectorAll(".barra-preenchimento");
 
-    barras.forEach(barra => {
+    barras.forEach((barra) => {
       const largura = barra.getAttribute("data-width");
       barra.style.width = largura + "%";
     });
@@ -103,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
         pokemon?.sprites?.front_default ||
         "";
 
-      const tipos = (pokemon.types || []).map(t => t.type.name);
+      const tipos = (pokemon.types || []).map((t) => t.type.name);
 
       const hp = pokemon?.stats?.[0]?.base_stat || 0;
       const attack = pokemon?.stats?.[1]?.base_stat || 0;
@@ -132,21 +141,21 @@ document.addEventListener("DOMContentLoaded", () => {
   </div>
 `;
 
-     li.addEventListener("click", () => {
-  openModal({
-    name: nome,
-    image: imagem,
-    type: tipos.join(", "),
-    description: `ID: ${id}`,
-    stats: {
-      hp: hp,
-      attack: attack,
-      defense: defense
-    }
-  });
-});
-      lista.appendChild(li);
+      li.addEventListener("click", () => {
+        li.classList.toggle("flip");
 
+        setTimeout(() => {
+          openModal({
+            name: nome,
+            image: imagem,
+            type: tipos.join(", "),
+            description: `ID: ${id}`,
+            stats: { hp, attack, defense },
+          });
+        }, 800);
+      });
+
+      lista.appendChild(li);
     } catch (erro) {
       console.error("Erro ao criar pokemon:", erro);
     }
@@ -157,9 +166,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // =====================
   for (let i = 1; i <= 150; i++) {
     fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
-      .then(res => res.json())
-      .then(data => criarPokemon(data))
-      .catch(err => console.error("Erro na API:", err));
+      .then((res) => res.json())
+      .then((data) => criarPokemon(data))
+      .catch((err) => console.error("Erro na API:", err));
   }
 
   // =====================
@@ -174,17 +183,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const cards = document.querySelectorAll(".card-pokemon");
 
-    cards.forEach(card => {
+    cards.forEach((card) => {
       const nome = card
         .querySelector(".informacoes span")
         .innerText.toLowerCase();
 
-      const tipos = [...card.querySelectorAll(".tipo")]
-        .map(t => t.classList[1]);
+      const tipos = [...card.querySelectorAll(".tipo")].map(
+        (t) => t.classList[1],
+      );
 
       const matchBusca = nome.includes(valorBusca);
-      const matchFiltro =
-        valorFiltro === "all" || tipos.includes(valorFiltro);
+      const matchFiltro = valorFiltro === "all" || tipos.includes(valorFiltro);
 
       card.style.display = matchBusca && matchFiltro ? "flex" : "none";
     });
@@ -192,5 +201,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   inputBusca.addEventListener("input", aplicarFiltros);
   filtro.addEventListener("change", aplicarFiltros);
-
 });

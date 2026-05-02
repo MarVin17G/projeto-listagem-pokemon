@@ -38,6 +38,21 @@ header {
 }
 
 /* ===================== */
+/* BUSCA + FILTRO */
+/* ===================== */
+#input-busca,
+#filtro-tipo {
+  display: block;
+  margin: 15px auto;
+  padding: 10px;
+  width: 220px;
+  border-radius: 10px;
+  border: none;
+  font-family: inherit;
+  font-size: 18px;
+}
+
+/* ===================== */
 /* LISTA */
 /* ===================== */
 .listagem-pokemon {
@@ -61,10 +76,41 @@ header {
 }
 
 .card-pokemon:hover {
-  transform: scale(1.05);
   filter: brightness(1.1);
 }
 
+/* ===================== */
+/* FLIP */
+/* ===================== */
+/* ===================== */
+/* FLIP */
+/* ===================== */
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+.card-pokemon.flip {
+  transform: rotateY(180deg);
+}
+
+.card-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  box-sizing: border-box;
+  border-radius: 15px;
+  backface-visibility: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
 /* ===================== */
 /* INFO */
 /* ===================== */
@@ -87,12 +133,19 @@ header {
 .tipos {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
 }
 
 .tipo {
   padding: 5px 10px;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.2);
+}
+
+.descricao {
+  text-align: center;
 }
 
 /* ===================== */
@@ -135,7 +188,7 @@ header {
 }
 
 /* ===================== */
-/* 🔥 STATS (HP, ATTACK...) */
+/* STATS */
 /* ===================== */
 .stat {
   margin: 12px 0;
@@ -143,7 +196,7 @@ header {
 }
 
 .stat span {
-  font-size...: 14px;
+  font-size: 14px;
   font-weight: bold;
 }
 
@@ -164,7 +217,7 @@ header {
 }
 
 /* ===================== */
-/* 🎨 CORES DAS BARRAS (TIPOS) */
+/* CORES BARRAS */
 /* ===================== */
 .barra-preenchimento.fire {
   background: #ee8130;
@@ -222,7 +275,7 @@ header {
 }
 
 /* ===================== */
-/* 🎨 CORES DOS CARDS */
+/* CORES CARDS */
 /* ===================== */
 .card-pokemon.fire {
   background: #ee8130;
